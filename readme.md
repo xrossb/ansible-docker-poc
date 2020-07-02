@@ -6,8 +6,8 @@ This demo contains an environment with:
 
 * An Ansible host: `ansible`
 * Some Ubuntu targets
-    * `postgres`
-    * `sftp`
+    * `elastic01`
+    * `postgres01`
 
 ## Getting Started
 
