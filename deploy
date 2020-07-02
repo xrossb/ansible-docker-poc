@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+inv=$1; shift
+
+docker-compose exec ansible ansible-galaxy install -r requirements.yml
+docker-compose exec ansible ansible-playbook -i inventories/$inv site.yml $@

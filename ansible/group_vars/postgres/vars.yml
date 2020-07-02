@@ -1,0 +1,5 @@
+ansible_user: postgres
+ansible_password: postgres
+ansible_become_pass: postgres
+
+postgresql_python_library: python3-psycopg2

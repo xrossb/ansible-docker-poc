@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  ansible:
+    build:
+      context: .
+    command: bash
+    tty: true
+    volumes:
+      - ./ansible:/project
+      - ansible-roles:/runner/.ansible/roles
+
+  postgres01:
+    build:
+      context: target-ubuntu
+    command: >
+      bash -c "
+        useradd -Ums /bin/bash -G sudo postgres &&
+        echo 'postgres:postgres' | chpasswd &&
+        /usr/sbin/sshd -D
+      "
+    tty: true
+
+volumes:
+  ansible-roles:
