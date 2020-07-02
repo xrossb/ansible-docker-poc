@@ -9,6 +9,17 @@ services:
       - ./ansible:/project
       - ansible-roles:/runner/.ansible/roles
 
+  elastic01:
+    build:
+      context: target-ubuntu
+    command: >
+      bash -c "
+        useradd -Ums /bin/bash -G sudo elastic &&
+        echo 'elastic:elastic' | chpasswd &&
+        /usr/sbin/sshd -D
+      "
+    tty: true
+
   postgres01:
     build:
       context: target-ubuntu

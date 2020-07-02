@@ -1,0 +1,8 @@
+- hosts: elastic
+  become: yes
+  pre_tasks:
+    - name: install prerequisite tools
+      apt:
+        name: gnupg
+  roles:
+    - elastic.elasticsearch
